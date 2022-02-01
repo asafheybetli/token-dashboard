@@ -9,7 +9,6 @@ import { Approve, UseErc20Interface } from "../../types/token"
 import { useTransaction } from "../../hooks/useTransaction"
 import { TransactionStatus } from "../../enums/transactionType"
 import { isWalletRejectionError } from "../../utils/isWalletRejectionError"
-import { once } from "@storybook/node-logger"
 
 export const useErc20TokenContract: UseErc20Interface = (
   tokenAddress,
@@ -22,6 +21,7 @@ export const useErc20TokenContract: UseErc20Interface = (
 
   // TODO: Figure out how to type the ERC20 contract
   // return useContract<Erc20>(tokenAddress, ERC20_ABI, withSignerIfPossible)
+  console.log("useERC20, tokenaddress: ", tokenAddress)
   const contract = useContract(tokenAddress, abi, withSignerIfPossible)
 
   const approve: Approve = useCallback(

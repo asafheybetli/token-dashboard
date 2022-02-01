@@ -36,6 +36,7 @@ const TOKEN_TO_MUTEX = {
 // cache this value in local storage.
 export const useVendingMachineRatio = (token: UpgredableToken) => {
   const vendingMachine = useVendingMachineContract(token)
+  console.log("useVendingMachineRatio line 39: ", vendingMachine)
   const contractAddress = vendingMachine?.address
 
   const [ratio, setRatio] = useLocalStorage(`${token}-to-T-ratio`, {
